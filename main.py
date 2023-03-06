@@ -108,7 +108,7 @@ class Calculator(QWidget):
             self.op = op
             self.input.setText("")
         except:
-            self.input.setText("clear input")
+            self.input.setText("Число введено не коррекктно")
 
     def _result(self):
         try:
@@ -117,7 +117,8 @@ class Calculator(QWidget):
             else:
                 self.num_2 = int(self.input.text())
         except:
-            self.input.setText("clear input")
+            self.input.setText("Число введено не коррекктно")
+            return
         try:
             if self.op == "+":
                 self.input.setText(str(self.num_1 + self.num_2))
@@ -127,11 +128,11 @@ class Calculator(QWidget):
                 self.input.setText(str(self.num_1 * self.num_2))
             elif self.op == "/":
                 if self.num_2 == 0:
-                    self.input.setText("ERROR")
+                    self.input.setText("Делить на ноль нельзя")
                 else:
                     self.input.setText(str(self.num_1 / self.num_2))
         except:
-            self.input.setText("input second number")
+            self.input.setText("Введите второе число")
 
 
     def _clear(self):
